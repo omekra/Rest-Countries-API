@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Navbar from './components/Navbar';
-import CountriesList from './components/CountriesList';
+import { Navbar, CountriesList } from './components';
 import { Container } from '@material-ui/core';
+import '../src/styles/styles.css';
 
 function App() {
   const [data, setData] = useState([]);
