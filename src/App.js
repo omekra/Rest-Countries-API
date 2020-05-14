@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Navbar, CountriesList } from './components';
+import Navbar from '../src/components/Navbar';
+import Loading from '../src/components/Countries/Loading';
+import CountriesList from '../src/components/Countries/CountriesList';
 import { Container } from '@material-ui/core';
 import '../src/styles/styles.css';
 
 function App() {
+  const url = 'https://restcountries.eu/rest/v2/all';
   const [data, setData] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [result, setResult] = useState('');
@@ -12,7 +15,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get('https://restcountries.eu/rest/v2/all');
+        const res = await axios.get(url);
         setData(res.data);
         setFiltered(res.data);
       } catch (err) {
@@ -23,11 +26,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const getResult = async () => {
-      const results = await filtered.filter((res) =>
+    const getResult = () => {
+      const results = filtered.filter((res) =>
         res.name.toLowerCase().includes(result.trim())
       );
-      console.log(results);
       setData(results);
     };
     getResult();
@@ -41,12 +43,11 @@ function App() {
     <div className="App">
       <Navbar />
       <Container maxWidth="lg">
-        <CountriesList
-          data={data}
-          filtered={filtered}
-          result={result}
-          onChange={onChange}
-        />
+        {!data.length ? (
+          <Loading />
+        ) : (
+          <CountriesList data={data} onChange={onChange} />
+        )}
       </Container>
     </div>
   );

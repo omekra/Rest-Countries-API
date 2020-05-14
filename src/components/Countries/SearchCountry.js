@@ -2,10 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
-import Countries from './Countries';
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
   inputContainer: {
     display: 'flex',
     marginBottom: 40,
@@ -24,24 +22,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function CountriesList({ data, filtered, result, onChange }) {
+const SearchCountry = ({ result, onChange }) => {
   const classes = useStyles();
 
   return (
-    <>
-      <Grid item xs={12} md={4} className={classes.inputContainer}>
-        <SearchIcon />
-        <input
-          type="text"
-          placeholder="Search for a country..."
-          value={result}
-          onChange={onChange}
-          className={classes.input}
-        />
-      </Grid>
-      <Countries data={data} />
-    </>
+    <Grid item xs={12} md={4} className={classes.inputContainer}>
+      <SearchIcon />
+      <input
+        type="text"
+        placeholder="Search for a country..."
+        value={result}
+        onChange={onChange}
+        className={classes.input}
+      />
+    </Grid>
   );
-}
+};
 
-export default CountriesList;
+export default SearchCountry;
