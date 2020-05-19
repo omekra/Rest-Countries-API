@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Grid } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { Grid, FormControl, NativeSelect } from '@material-ui/core';
 import SearchCountry from './SearchCountry';
 import FilterByRegion from './FilterByRegion';
 import Countries from './Countries';
-import { FormControl, NativeSelect } from '@material-ui/core';
 import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
@@ -23,6 +22,9 @@ const useStyles = makeStyles((theme) => ({
     '& .MuiInput-underline:hover:not(.Mui-disabled):before': {
       borderBottom: 'none',
     },
+    '& .MuiNativeSelect-select': {
+      backgroundColor: 'transparent',
+    },
   },
   filterByRegion: {
     display: 'flex',
@@ -37,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CountriesList = ({ data, result, onChange }) => {
   const classes = useStyles();
+
   const [fetchedRegion, setFetchedRegion] = useState([]);
   const [isRegion, setIsRegion] = useState(false);
   const url = 'https://restcountries.eu/rest/v2';

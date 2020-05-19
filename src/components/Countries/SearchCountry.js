@@ -31,7 +31,7 @@ const SearchCountry = ({ result, onChange, isRegion }) => {
       <SearchIcon />
       <input
         type="text"
-        placeholder="Search for a country..."
+        placeholder={isRegion ? 'Disabled' : 'Search for a country...'}
         value={result}
         onChange={onChange}
         className={classes.input}

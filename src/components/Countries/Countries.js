@@ -10,7 +10,6 @@ import {
 } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
   media: {
     height: 140,
   },
@@ -21,34 +20,30 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Countries = ({ data }) => {
-  const classes = useStyles();
+  const { media, span } = useStyles();
 
   return (
     <Grid container spacing={2}>
-      {data.map((country, index) => (
+      {data.map(({ flag, name, population, region, capital }, index) => (
         <Grid key={index} item xs={12} sm={4} md={3}>
-          <Card className={classes.root}>
+          <Card>
             <CardActionArea>
-              <CardMedia
-                className={classes.media}
-                image={country.flag}
-                title={country.name}
-              />
+              <CardMedia className={media} image={flag} title={name} />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="h2">
-                  {country.name}
+                  {name}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  <span className={classes.span}>Population: </span>
-                  {country.population}
+                  <span className={span}>Population: </span>
+                  {population}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  <span className={classes.span}>Region: </span>
-                  {country.region}
+                  <span className={span}>Region: </span>
+                  {region}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
-                  <span className={classes.span}>Capital: </span>
-                  {country.capital}
+                  <span className={span}>Capital: </span>
+                  {capital}
                 </Typography>
               </CardContent>
             </CardActionArea>
