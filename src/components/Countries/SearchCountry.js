@@ -6,6 +6,7 @@ import SearchIcon from '@material-ui/icons/Search';
 const useStyles = makeStyles((theme) => ({
   inputContainer: {
     display: 'flex',
+    alignItems: 'center',
     marginBottom: 40,
     padding: 10,
     borderRadius: 4,
@@ -22,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SearchCountry = ({ result, onChange }) => {
+const SearchCountry = ({ result, onChange, isRegion }) => {
   const classes = useStyles();
 
   return (
@@ -30,10 +31,11 @@ const SearchCountry = ({ result, onChange }) => {
       <SearchIcon />
       <input
         type="text"
-        placeholder="Search for a country..."
+        placeholder={isRegion ? 'Disabled' : 'Search for a country...'}
         value={result}
         onChange={onChange}
         className={classes.input}
+        disabled={isRegion ? true : false}
       />
     </Grid>
   );
