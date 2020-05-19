@@ -7,7 +7,7 @@ import { Container } from '@material-ui/core';
 import '../src/styles/styles.css';
 
 function App() {
-  const url = 'https://restcountries.eu/rest/v2/all';
+  const url = 'https://restcountries.eu/rest/v2';
   const [data, setData] = useState([]);
   const [filtered, setFiltered] = useState([]);
   const [result, setResult] = useState('');
