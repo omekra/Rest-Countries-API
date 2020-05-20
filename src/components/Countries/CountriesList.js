@@ -37,12 +37,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CountriesList = ({ data, result, onChange }) => {
+const CountriesList = ({ data, result, onChange, url }) => {
   const classes = useStyles();
 
   const [fetchedRegion, setFetchedRegion] = useState([]);
   const [isRegion, setIsRegion] = useState(false);
-  const url = 'https://restcountries.eu/rest/v2';
 
   const fetchRegion = async (fetchedRegion) => {
     let changeableUrl = url;

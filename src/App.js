@@ -46,7 +46,7 @@ function App() {
         {!data.length ? (
           <Loading />
         ) : (
-          <CountriesList data={data} onChange={onChange} />
+          <CountriesList data={data} onChange={onChange} url={url} />
         )}
       </Container>
     </div>
