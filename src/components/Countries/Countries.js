@@ -42,7 +42,7 @@ const Countries = ({ data }) => {
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
                   <span className={span}>Population: </span>
-                  {population}
+                  {population.toLocaleString()}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
                   <span className={span}>Region: </span>

@@ -46,6 +46,7 @@ const CountryDetails = (props) => {
       topLevelDomain,
       currencies,
       languages,
+      borders,
     }) => (
       <CountryDetailsInfo
         key={cioc}
@@ -59,9 +60,12 @@ const CountryDetails = (props) => {
         topLevelDomain={topLevelDomain}
         currencies={currencies}
         languages={languages}
+        borders={borders}
       />
     )
   );
+
+  console.log(data);
 
   return (
     <>

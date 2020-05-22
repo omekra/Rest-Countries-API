@@ -1,11 +1,12 @@
 import React from 'react';
 import { Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import BorderCountries from './BorderCountries';
 
 const useStyles = makeStyles((theme) => ({
   countryDetailsContainer: {
     display: 'flex',
-    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   countryDetailsInner: {
     display: 'flex',
@@ -13,10 +14,12 @@ const useStyles = makeStyles((theme) => ({
   media: {
     height: 300,
   },
-  countryDetailsLeft: {
-    marginLeft: 120,
+  countryDetailsRight: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
   },
-  innerLeft: {
+  innerRight: {
     marginRight: 140,
   },
   para: {
@@ -26,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 600,
     color: theme.palette.primary.contrastText,
   },
-  innerRight: {},
+  innerLeft: {},
 }));
 
 const CountryDetailsInfo = ({
@@ -41,26 +44,28 @@ const CountryDetailsInfo = ({
   topLevelDomain,
   currencies,
   languages,
+  borders,
 }) => {
   const {
     countryDetailsContainer,
     media,
-    countryDetailsLeft,
+    countryDetailsRight,
     countryDetailsInner,
-    innerLeft,
+    innerRight,
     para,
     span,
-    innerRight,
+    innerLeft,
   } = useStyles();
+
   return (
     <div key={cioc} className={countryDetailsContainer}>
       <img src={flag} alt={`${name} flag`} className={media} />
-      <div className={countryDetailsLeft}>
+      <div className={countryDetailsRight}>
         <Typography gutterBottom variant="h5" component="h2">
           {name}
         </Typography>
         <div className={countryDetailsInner}>
-          <div className={innerLeft}>
+          <div className={innerRight}>
             <Typography
               variant="body2"
               color="textSecondary"
@@ -75,7 +80,7 @@ const CountryDetailsInfo = ({
               component="p"
               className={para}>
               <span className={span}>Population: </span>
-              {population}
+              {population.toLocaleString()}
             </Typography>
             <Typography
               variant="body2"
@@ -135,6 +140,8 @@ const CountryDetailsInfo = ({
             </Typography>
           </div>
         </div>
+
+        <BorderCountries borders={borders} />
       </div>
     </div>
   );
