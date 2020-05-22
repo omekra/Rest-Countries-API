@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, FormControl, NativeSelect } from '@material-ui/core';
-import SearchCountry from './SearchCountry';
-import FilterByRegion from './FilterByRegion';
+import SearchCountry from '../SearchCountry';
+import FilterByRegion from '../FilterByRegion';
 import Countries from './Countries';
 import axios from 'axios';
 
@@ -78,23 +78,19 @@ const CountriesList = ({ data, result, onChange, url }) => {
   return (
     <>
       <Grid container className={classes.searchNav}>
-        {isRegion ? (
-          <SearchCountry
-            onChange={onChange}
-            result={result}
-            isRegion={isRegion}
-          />
-        ) : (
-          <SearchCountry onChange={onChange} result={result} />
-        )}
+        <SearchCountry
+          onChange={onChange}
+          result={result}
+          isRegion={isRegion}
+        />
 
         <Grid item xs={12} md={4} className={classes.filterByRegion}>
           <FormControl className={classes.formControl}>
             <NativeSelect
               className={classes.select}
-              defaultValue=""
               onChange={(e) => handleRegionChange(e.target.value)}>
               <option value="">Filter by Region</option>
+              <option value="">All</option>
               <option value="Africa">Africa</option>
               <option value="Americas">Americas</option>
               <option value="Asia">Asia</option>
