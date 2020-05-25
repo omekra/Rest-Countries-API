@@ -8,6 +8,9 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 630,
     color: theme.palette.primary.contrastText,
   },
+  borderSpan: {
+    marginRight: 10,
+  },
   borderButtons: {
     padding: '5px 30px',
     marginRight: 10,
@@ -18,22 +21,24 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const BorderCountries = ({ borders }) => {
-  const { borderButtons, borderCountries } = useStyles();
+  const { borderSpan, borderButtons, borderCountries } = useStyles();
   console.log(borders);
 
   return (
-    <Typography
-      variant="body2"
-      color="textSecondary"
-      component="div"
-      className={borderCountries}>
-      Border Countries:
-      {borders.map((border, i) => (
-        <Button key={i} className={borderButtons}>
-          {border}
-        </Button>
-      ))}
-    </Typography>
+    <>
+      <Typography
+        variant="body2"
+        color="textSecondary"
+        component="div"
+        className={borderCountries}>
+        <span className={borderSpan}>Border Countries:</span>
+        {borders.map((border, i) => (
+          <Button key={i} className={borderButtons}>
+            {border}
+          </Button>
+        ))}
+      </Typography>
+    </>
   );
 };
 
