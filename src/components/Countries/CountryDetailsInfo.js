@@ -29,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 600,
     color: theme.palette.primary.contrastText,
   },
-  innerLeft: {},
 }));
 
 const CountryDetailsInfo = ({
@@ -54,7 +53,6 @@ const CountryDetailsInfo = ({
     innerRight,
     para,
     span,
-    innerLeft,
   } = useStyles();
 
   return (
