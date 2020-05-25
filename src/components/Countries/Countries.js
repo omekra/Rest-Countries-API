@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import { makeStyles } from '@material-ui/core/styles';
 import {
   Grid,
@@ -22,11 +23,17 @@ const useStyles = makeStyles((theme) => ({
 const Countries = ({ data }) => {
   const { media, span } = useStyles();
 
+  let history = useHistory();
+  const handleClick = (name) => {
+    localStorage.setItem('selectedCountry', name);
+    history.push('/country-details', name);
+  };
+
   return (
     <Grid container spacing={2}>
       {data.map(({ flag, name, population, region, capital }, index) => (
         <Grid key={index} item xs={12} sm={4} md={3}>
-          <Card>
+          <Card onClick={() => handleClick(name)}>
             <CardActionArea>
               <CardMedia className={media} image={flag} title={name} />
               <CardContent>
@@ -35,7 +42,7 @@ const Countries = ({ data }) => {
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
                   <span className={span}>Population: </span>
-                  {population}
+                  {population.toLocaleString()}
                 </Typography>
                 <Typography variant="body2" color="textSecondary" component="p">
                   <span className={span}>Region: </span>

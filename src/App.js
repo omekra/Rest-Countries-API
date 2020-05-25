@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { BrowserRouter as Switch, Route } from 'react-router-dom';
 import Navbar from '../src/components/Navbar';
-import Loading from '../src/components/Countries/Loading';
+import Loading from './components/Loading';
 import CountriesList from '../src/components/Countries/CountriesList';
+import CountryDetails from '../src/components/Countries/CountryDetails';
 import { Container } from '@material-ui/core';
 import '../src/styles/styles.css';
 
@@ -46,7 +48,16 @@ function App() {
         {!data.length ? (
           <Loading />
         ) : (
-          <CountriesList data={data} onChange={onChange} url={url} />
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={() => (
+                <CountriesList data={data} onChange={onChange} url={url} />
+              )}
+            />
+            <Route exact path="/country-details" component={CountryDetails} />
+          </Switch>
         )}
       </Container>
     </div>
