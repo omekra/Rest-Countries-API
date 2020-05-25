@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     height: 300,
+    maxWidth: 480,
   },
   countryDetailsRight: {
     display: 'flex',
@@ -57,7 +58,9 @@ const CountryDetailsInfo = ({
 
   return (
     <div key={cioc} className={countryDetailsContainer}>
-      <img src={flag} alt={`${name} flag`} className={media} />
+      <div>
+        <img src={flag} alt={`${name} flag`} className={media} />
+      </div>
       <div className={countryDetailsRight}>
         <Typography gutterBottom variant="h5" component="h2">
           {name}
