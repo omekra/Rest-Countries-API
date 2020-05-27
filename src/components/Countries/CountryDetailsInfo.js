@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
   media: {
     height: 300,
     maxWidth: 480,
+    border: '1px solid #dedede',
   },
   countryDetailsRight: {
     display: 'flex',
