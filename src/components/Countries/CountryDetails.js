@@ -71,7 +71,7 @@ const CountryDetails = (props) => {
         href={process.env.PUBLIC_URL + '/'}
         startIcon={<KeyboardBackspaceIcon />}
         className={backButton}>
-        Back to Countries List
+        Back to Countries
       </Button>
 
       {countryDetails}
