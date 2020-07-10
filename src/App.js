@@ -51,7 +51,7 @@ function App() {
           <Switch>
             <Route
               exact
-              path="/"
+              path={process.env.PUBLIC_URL + '/'}
               render={() => (
                 <CountriesList data={data} onChange={onChange} url={url} />
               )}
