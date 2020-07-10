@@ -65,8 +65,6 @@ const CountryDetails = (props) => {
     )
   );
 
-  console.log(data);
-
   return (
     <>
       <Button
