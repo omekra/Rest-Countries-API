@@ -1,10 +1,9 @@
 import { createMuiTheme } from '@material-ui/core/styles';
 
-export const theme = createMuiTheme({
+export const lightTheme = createMuiTheme({
   palette: {
     primary: {
-      main: 'hsl(0, 0%, 100%)', // Dark Mode Text & Light Mode Elements
-      contrastText: 'hsl(200, 15%, 8%)', // Light Mode Text
+      main: 'hsl(200, 15%, 8%)', // Dark Mode Text & Light Mode Elements
     },
     grey: {
       50: 'hsl(0, 0%, 98%)', // Light Mode Background
@@ -12,10 +11,23 @@ export const theme = createMuiTheme({
     },
   },
   typography: {
-    fontFamily: "'Nunito Sans', sans-serif",
+    fontFamily: 'Nunito Sans, sans-serif',
     fontSize: 14,
     fontWeightLight: 300,
     fontWeightMedium: 600,
     fontWeightBold: 800,
+  },
+});
+
+export const darkTheme = createMuiTheme({
+  palette: {
+    type: 'dark',
+    background: {
+      paper: '#fff',
+      default: '#fafafa',
+    },
+    primary: {
+      main: 'hsl(0, 0%, 100%)', // Dark Mode Text
+    },
   },
 });

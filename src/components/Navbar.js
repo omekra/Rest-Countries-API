@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { AppBar, Toolbar, Typography, Button } from '@material-ui/core';
+import { Paper, AppBar, Toolbar, Typography, Button } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -12,18 +12,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Navbar = (theme) => {
+const Navbar = () => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
       <AppBar position="static" color="primary">
-        <Toolbar>
-          <Typography variant="h6" className={classes.title}>
-            Where in the world?
-          </Typography>
-          <Button color="inherit">Dark Mode</Button>
-        </Toolbar>
+        <Paper square>
+          <Toolbar>
+            <Typography variant="h6" className={classes.title}>
+              Where in the world?
+            </Typography>
+            <Button color="inherit">Dark Mode</Button>
+          </Toolbar>
+        </Paper>
       </AppBar>
     </div>
   );

@@ -16,9 +16,11 @@ const useStyles = makeStyles((theme) => ({
   input: {
     border: 'none',
     width: '100%',
+    background: 'transparent',
 
     '&:focus': {
       outline: 'none',
+      // color: '#fff', ?????
     },
   },
 }));

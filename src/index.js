@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { BrowserRouter as Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
-import { ThemeProvider } from '@material-ui/core/styles';
-import { theme } from '../src/styles/theme';
+// import { ThemeProvider } from '@material-ui/core/styles';
+// import { theme, darkTheme } from '../src/styles/theme';
+// import { Paper } from '@material-ui/core';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <Router>
-        <App />
-      </Router>
-    </ThemeProvider>
+    {/* <ThemeProvider theme={theme}>
+      <Paper> */}
+    <App />
+    {/* </Paper>
+    </ThemeProvider> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

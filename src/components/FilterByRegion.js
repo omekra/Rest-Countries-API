@@ -23,6 +23,10 @@ const useStyles = makeStyles((theme) => ({
   media: {
     height: 140,
   },
+  span: {
+    fontWeight: 600,
+    color: theme.palette.primary.contrastText,
+  },
 }));
 
 const SearchCountry = ({ fetchedRegion }) => {

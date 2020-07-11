@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from 'react-router';
 import { makeStyles } from '@material-ui/core/styles';
-import { Button } from '@material-ui/core';
+import { Button, Paper } from '@material-ui/core';
 import KeyboardBackspaceIcon from '@material-ui/icons/KeyboardBackspace';
 import CountryDetailsInfo from './CountryDetailsInfo';
 import axios from 'axios';
@@ -16,6 +17,8 @@ const useStyles = makeStyles((theme) => ({
 
 const CountryDetails = (props) => {
   const { backButton } = useStyles();
+
+  let history = useHistory();
 
   let country = props.history.location.state;
   const url = `https://restcountries.eu/rest/v2/name/${country}`;
@@ -68,12 +71,11 @@ const CountryDetails = (props) => {
   return (
     <>
       <Button
-        href={process.env.PUBLIC_URL + '/'}
+        onClick={() => history.push('/')}
         startIcon={<KeyboardBackspaceIcon />}
         className={backButton}>
         Back to Countries
       </Button>
-
       {countryDetails}
     </>
   );

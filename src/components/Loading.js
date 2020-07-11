@@ -1,10 +1,10 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
+import { Grid, Paper } from '@material-ui/core';
 import Skeleton from '@material-ui/lab/Skeleton';
 
 const Loading = () => {
   return (
-    <>
+    <Paper elevation={0} style={{ height: '100vh' }}>
       <Grid item xs={12} md={4}>
         <Skeleton width="100%" height={60} />
       </Grid>
@@ -44,7 +44,7 @@ const Loading = () => {
           <Skeleton width="60%" />
         </Grid>
       </Grid>
-    </>
+    </Paper>
   );
 };
 

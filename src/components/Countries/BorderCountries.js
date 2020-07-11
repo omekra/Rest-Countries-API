@@ -66,18 +66,14 @@ const BorderCountries = ({ borders }) => {
   });
 
   return (
-    <>
-      <Typography
-        variant="body2"
-        color="textSecondary"
-        component="div"
-        className={borderCountries}>
-        <span className={borderSpan}>
-          ({borders.length}) Border Countries:{' '}
-        </span>
-        {borderCountry}
-      </Typography>
-    </>
+    <Typography
+      variant="body2"
+      color="textSecondary"
+      component="div"
+      className={borderCountries}>
+      <span className={borderSpan}>({borders.length}) Border Countries: </span>
+      {borderCountry}
+    </Typography>
   );
 };
 
