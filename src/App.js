@@ -14,7 +14,6 @@ import {
   Button,
 } from '@material-ui/core';
 import '../src/styles/styles.css';
-// import { lightTheme, darkTheme } from '../src/styles/theme';
 import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -67,12 +66,12 @@ function App() {
     palette: {
       background: { paper: 'hsl(0, 0%, 98%)' },
       primary: {
-        main: 'hsl(200, 15%, 8%)', // Dark Mode Text & Light Mode Elements
-        contrastText: 'hsl(200, 15%, 8%)', // Light Mode Text
+        main: 'hsl(200, 15%, 8%)',
+        contrastText: 'hsl(200, 15%, 8%)',
       },
       grey: {
-        50: 'hsl(0, 0%, 98%)', // Light Mode Background
-        500: 'hsl(0, 0%, 52%)', // Light Mode Input
+        50: 'hsl(0, 0%, 98%)',
+        500: 'hsl(0, 0%, 52%)',
       },
     },
     typography: {
